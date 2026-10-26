@@ -1,12 +1,12 @@
 ## Which of the following best describes Potential Vulnerabilities?
 
-a. Potential vulnerabilities are defined by their possible consequences. — Incorrectly selected
+a. Potential vulnerabilities are defined by their possible consequences.
 
-b. Vulnerabilities that only provide information about the network related to the host. — Correctly unselected
+b. Vulnerabilities that only provide information about the network related to the host. 
 
-c. Vulnerabilities that cannot be detected by Cloud Agents. — Correctly unselected
+c. Vulnerabilities that cannot be detected by Cloud Agents. 
 
-d. Vulnerabilities that cannot be fully verified. — Correct answer (Incorrectly unselected)
+d. Vulnerabilities that cannot be fully verified. — Correct answer 
 
 Explanation:
 

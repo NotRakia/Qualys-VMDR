@@ -1,36 +1,3 @@
-# Adding Assets to VMDR
-
-## Overview
-For scanning to begin, you must first add scannable host assets to your subscription.
-
-## Key Concepts
-
-### 1. Scannable Host Assets
-- Typically assets in fixed locations, such as servers or workstations on the corporate LAN.
-- The tracking method impacts how the hosts will be listed in scan reports.
-- Scan results are always sorted by IP address.
-
-### 2. IP Address Formats
-
-IPs may be entered in any of the following formats:
-
-| Format | Example |
-|---|---|
-| List of single IPs | `17.16.20.5, 17.16.20.21` |
-| IP ranges | `167.216.205.1-167.216.205.254` |
-| CIDR | `192.168.87.0/24` |
-
-### 3. Tracking Methods
-- **IP Tracked Addresses**
-- **DNS Tracked Addresses**
-- **NetBIOS Tracked Addresses**
-
-## Key Takeaways
-- Add scannable host assets to your subscription before scanning.
-- The tracking method determines how hosts are listed in scan reports.
-- Scan results are always sorted by IP address.
-- IP addresses can be entered as individual IPs, IP ranges, or CIDR notation.
-
 # Add Scannable Host Assets to VMDR
 
 ## Overview
@@ -87,4 +54,85 @@ Example. If the assets have a DHCP dynamic IP address then most likely we should
 7. The tag's criticality value will be inherited from the group's business impact setting.
 8. Select Low to be on the safe side, as the inherited criticality value is often not appropriate.
 
+# Adding Scannable Host Assets to VMDR
 
+## Overview
+Laboratory activity that adds scannable host assets to the subscription, launch an initial scan, and create an Asset Group.
+
+## Key Concepts
+
+### 1. Tracking Methods
+
+The tracking method depends on how the assets obtain their IP addresses.
+
+- **IP Tracked Hosts:** Select this when assets use static IP addresses.
+- **DNS Tracked Hosts:** Select this when assets use DHCP IP addresses.
+
+### 2. Adding Scannable Host Assets
+
+To add scannable host assets:
+
+1. Click **New**.
+2. Select the appropriate tracking method.
+3. Click the **Host IPs** tab.
+4. Enter the IP addresses or IP ranges.
+5. If the assets are likely to have digital certificates, select **Add to CertView Module**.
+6. Click **Add**.
+7. Click **Apply**.
+
+**IP ranges used in the lab:**
+
+- `64.41.200.243-64.41.200.250`
+- `10.115.117.171-10.115.117.183`
+
+### 3. Launching an Initial Vulnerability Scan
+
+After adding the assets:
+
+1. Open the **Host Assets** tab.
+2. Select the bottom row of hosts.
+3. Click the drop-down arrow.
+4. Click **Launch Scan**.
+5. In the Title field, type `New assets scan`.
+6. Click **Launch** to scan immediately using default settings.
+7. Review the confirmation screen and click **Close**.
+
+**Scan Status:** A newly launched scan job is initially in a **Queued** state. It will change to a **Running** state in due course.
+
+### 4. Creating an Asset Group
+
+An Asset Group is one method of organizing scannable hosts and associating them with users and scanners. Asset Tags can also be used to organize assets.
+
+To create an Asset Group:
+
+1. Open the **Assets** section.
+2. In the Asset Group tab, click **New**.
+3. Click **Asset Group**.
+4. In the title, type `AG: External Assets`.
+5. Click the **IPs** tab.
+6. Click **Select IPs/Ranges**.
+7. Select the bottom row of IP addresses.
+8. Click **Select**.
+9. Click the **Business / CVSS Info** tab.
+10. Click the drop-down menu next to Business Impact.
+11. Select **Low**.
+12. Click **Save**.
+
+### 5. Business Impact and TruRisk
+
+- The Business Impact score affects the assets' TruRisk scores.
+- Consider setting Business Impact to **Low** and using the Asset Criticality Score alone to define business criticality of an asset.
+
+## Key Takeaways
+
+- Add scannable host assets to the subscription before scanning.
+- Use **IP Tracked Hosts** for static IP addresses and **DNS Tracked Hosts** for DHCP IP addresses.
+- Qualys CertView can be used for assets likely to have digital certificates.
+- You can launch a vulnerability scan using default settings.
+- A newly launched scan job initially appears as **Queued** before changing to **Running**.
+- Asset Groups organize scannable hosts and can associate them with users and scanners.
+- Business Impact affects asset TruRisk scores.
+
+## Key Application
+
+Learned some idea how to add scannable host assets, launch an initial vulnerability scan, and organize the new assets into an Asset Group.
